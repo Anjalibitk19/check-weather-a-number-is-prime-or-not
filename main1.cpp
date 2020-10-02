@@ -2,20 +2,27 @@
 using namespace std;
 int main()
 {
-   int num, flag = true;
+   int num, i;
    cout<<"Enter number:";
    cin>>num;
+   
+   bool isPrime=false;
+   
+   if (num == 0 || num == 1) {
+        isPrime = false;
+    }
+    else {
+        for (i = 2; i <= num / 2; ++i) {
+            if (num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    if (isPrime)
+        cout << num << " is a prime number";
+    else
+        cout << num << " is not a prime number";
 
-   for(int i = 2; i <= num / 2; i++) 
-   {
-      if(num % i == 0) {
-         flag = false;
-         break;
-      }
-   }
-   if (flag==true)
-      cout<<num<<" is a prime number";
-   else
-      cout<<num<<" is not a prime number";
-   return 0;
+    return 0;
 }
